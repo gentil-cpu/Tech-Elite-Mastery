@@ -3,83 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech-Elite | IA & Astuces 2026</title>
+    <title>Tech-Elite | IA & Secrets 2026</title>
 
     <script src="https://zodiacneglect.com/31/70/17/317017ae85b9d827039ca3da8ac3e9ea.js"></script>
 
     <style>
         :root { --primary: #00d2ff; --dark: #121212; --card: #1e1e1e; --text: #ffffff; --premium: #e74c3c; --whatsapp: #25d366; }
         body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: var(--text); margin: 0; padding: 0; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #00d2ff, #3a7bd5); padding: 2.5rem 1rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        header { background: linear-gradient(135deg, #00d2ff, #3a7bd5); padding: 2.5rem 1rem; text-align: center; border-bottom: 3px solid var(--primary); }
         .container { max-width: 800px; margin: auto; padding: 20px; }
-        .card { background: var(--card); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--primary); }
-        .premium-card { background: #2c1a1a; border: 2px solid var(--premium); padding: 20px; border-radius: 12px; text-align: center; margin: 25px 0; }
-        .btn-action { display: block; background: #27ae60; color: white; padding: 12px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; cursor: pointer; border: none; width: 100%; margin-top: 10px; transition: 0.3s; }
-        .btn-action:hover { opacity: 0.9; transform: scale(1.02); }
-        .hidden-content { display: none; background: #151515; padding: 15px; border-radius: 8px; margin-top: 10px; color: #00d2ff; border: 1px solid #333; }
-        footer { background: #0a0a0a; padding: 40px 20px; text-align: center; border-top: 2px solid #222; }
-        .m-pesa { border: 1px solid #444; padding: 10px; margin: 5px auto; border-radius: 8px; max-width: 320px; font-weight: bold; font-family: monospace; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        
+        .btn-unlock { display: block; background: #3498db; color: white; padding: 15px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; cursor: pointer; border: none; width: 100%; margin-top: 10px; font-size: 1.1rem; }
+        .btn-premium { background: var(--premium); margin-top: 20px; animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Système de chargement sécurisé */
+        .loading-box { display: none; text-align: center; padding: 30px; background: #000; border-radius: 12px; margin-top: 10px; border: 2px solid var(--primary); }
+        .spinner { border: 5px solid rgba(255,255,255,0.1); border-left-color: var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 10px auto; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .hidden-content { display: none; background: #1a1a1a; padding: 20px; border-radius: 8px; margin-top: 10px; color: var(--primary); border: 1px solid #333; line-height: 1.8; }
+        
+        footer { background: #0a0a0a; padding: 40px 20px; text-align: center; border-top: 2px solid #222; margin-top: 50px; }
+        .m-pesa { border: 1px solid #444; padding: 12px; margin: 8px auto; border-radius: 8px; max-width: 320px; font-weight: bold; font-family: 'Courier New', monospace; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>🤖 Tech-Elite Mastery</h1>
-    <p>Guide Ultime IA & Secrets Mobiles - RDC 2026</p>
+    <p>L'Elite de l'IA et des Secrets Mobiles en RDC</p>
 </header>
 
 <div class="container">
+
     <section>
-        <h2>🚀 Aperçu Gratuit</h2>
+        <h2>🎁 Astuce Gratuite du Jour</h2>
         <div class="card">
-            <h3>Boostez votre RAM (Android)</h3>
-            <p>Optimisation système pour téléphones lents.</p>
-            <button class="btn-action" onclick="toggleContent('ram')" style="background: #3498db;">🔓 Débloquer l'astuce</button>
-            <div id="ram" class="hidden-content">
-                <b>Méthode :</b> Allez dans Paramètres > Assistance appareil > Mémoire > RAM Plus. Sélectionnez le maximum (ex: 8Go) et redémarrez.
+            <h3>Libérer la Puissance Cachée de votre Android</h3>
+            <p>Accélérez votre processeur et optimisez votre batterie en 2 étapes simples.</p>
+            
+            <button class="btn-unlock" id="btn-free" onclick="startLoading('free-load', 'free-content', 'btn-free')">🔓 Débloquer l'accès (Gratuit)</button>
+
+            <div id="free-load" class="loading-box">
+                <div class="spinner"></div>
+                <p><b>Vérification de sécurité en cours...</b></p>
+                <p style="font-size: 0.8rem; color: #888;">Merci de patienter 30 secondes. Pendant ce temps, consultez les offres de nos partenaires qui s'affichent à l'écran.</p>
+                <div id="timer" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">30</div>
+            </div>
+
+            <div id="free-content" class="hidden-content">
+                <h4 style="margin-top: 0; color: #fff;">✅ Secret Débloqué :</h4>
+                <b>1. RAM Virtuelle :</b> Paramètres > Assistance appareil > Mémoire > RAM Plus. Réglez sur 8Go ou le maximum disponible.<br>
+                <b>2. Nettoyage Système :</b> Ouvrez le clavier d'appel et tapez <code>*#9900#</code>. Cherchez "Delete dumpstate/logcat" et cliquez. Votre téléphone sera comme neuf !
             </div>
         </div>
     </section>
 
-    <div class="premium-card">
-        <h3 style="color: var(--premium);">💎 ACCÈS VIP & PDF COMPLET</h3>
-        <p>"Soutenez notre travail pour recevoir le <b>PDF Officiel</b> contenant tous les liens premium, prompts secrets et codes inédits de 2026."</p>
-        <a href="#paiement" class="btn-action" style="background: var(--premium);">🚀 Faire un don (M-Pesa/Orange/Airtel)</a>
+    <div class="card" style="border-left-color: var(--premium); background: #221212;">
+        <h3 style="color: var(--premium);">📥 Guide VIP 2026 (Complet)</h3>
+        <p>Voulez-vous les <b>10 Meilleurs Prompts IA</b> pour gagner de l'argent et les <b>Codes USSD Secrets</b> pour internet gratuit ?</p>
+        <p style="font-size: 0.9rem; font-style: italic;">"Le savoir a un prix, mais le succès n'attend pas."</p>
         
-        <div style="background: var(--whatsapp); color: white; padding: 15px; border-radius: 10px; margin-top: 20px;">
-            <p style="margin: 0; font-weight: bold;">✅ DÉJÀ ENVOYÉ VOTRE DON ?</p>
-            <p style="font-size: 0.85rem; margin-bottom: 10px;">Cliquez pour m'envoyer la preuve et recevoir votre PDF VIP.</p>
-            <a href="https://wa.me/243973236524?text=Bonjour,%20je%20viens%20de%20faire%20un%20don%20pour%20Tech-Elite.%20Voici%20ma%20preuve%20de%20paiement." 
-               target="_blank"
-               style="background: white; color: var(--whatsapp); padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
-               📱 WhatsApp : +243 973236524
+        <a href="#paiement" class="btn-unlock btn-premium">💰 Obtenir le Guide VIP (Don 1$+)</a>
+
+        <div style="background: var(--whatsapp); color: white; padding: 20px; border-radius: 12px; margin-top: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            <p style="margin:0; font-weight: bold;">SUPPORT & VALIDATION</p>
+            <p style="font-size: 0.8rem; margin: 5px 0;">Envoyez votre preuve de don pour recevoir le PDF VIP.</p>
+            <a href="https://wa.me/243973236524?text=Salut,%20j'ai%20fait%20mon%20don%20pour%20Tech-Elite.%20Envoie-moi%20le%20Guide%20VIP%20PDF." target="_blank" style="background: white; color: var(--whatsapp); padding: 8px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px;">
+                📱 Contacter Gentil (+243 973 236 524)
             </a>
         </div>
     </div>
+
 </div>
 
 <footer id="paiement">
-    <h3 style="color: #27ae60;">🇨🇩 SOUTIEN LOCAL (RDC)</h3>
+    <h3 style="color: #27ae60;">🇨🇩 MOYENS DE SOUTIEN</h3>
     <div class="m-pesa" style="color: #e60000; border-color: #e60000;">M-Pesa : +243 830527818</div>
     <div class="m-pesa" style="color: #ff6600; border-color: #ff6600;">Orange Money : +243 858457536</div>
     <div class="m-pesa" style="color: #ed1c24; border-color: #ed1c24;">Airtel Money : +243 973236524</div>
-
-    <h3 style="margin-top: 30px; color: var(--primary);">🌍 INTERNATIONAL & CRYPTO</h3>
-    <p style="font-size: 0.75rem; opacity: 0.8;">
-        <b>BTC:</b> bc1qfh2gxycaxvflgkm5ajal2g47gc8mx5wqhcrln4<br>
-        <b>USDT (BEP20):</b> 0x04Aed40642db716E995B14a63f5CBA220709c99f
-    </p>
-    <p style="margin-top: 30px; font-size: 0.7rem; opacity: 0.4;">© 2026 Tech-Elite Mastery. Tous droits réservés.</p>
+    <p style="font-size: 0.8rem; margin-top: 25px; opacity: 0.6;">© 2026 Tech-Elite Mastery RDC. Tous droits réservés.</p>
 </footer>
 
 <script>
-    function toggleContent(id) {
-        var x = document.getElementById(id);
-        x.style.display = (x.style.display === "block") ? "none" : "block";
+    function startLoading(loadId, contentId, btnId) {
+        document.getElementById(btnId).style.display = 'none';
+        document.getElementById(loadId).style.display = 'block';
+        
+        let timeLeft = 30;
+        let timerElement = document.getElementById('timer');
+        
+        let countdown = setInterval(function() {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                document.getElementById(loadId).style.display = 'none';
+                document.getElementById(contentId).style.display = 'block';
+            }
+        }, 1000);
     }
 </script>
 
 <script src="https://zodiacneglect.com/c5/50/00/c55000a444b71daa30647afc88592cc8.js"></script>
 
 </body>
-</html>
+                                                                                                                                              </html>
+                                                                                                                                              
